@@ -42,8 +42,9 @@ const counterFactory = () => {
 		return counter;
 	};
 };
-//you need to include "increment" or "decrement" as attribute
-const incrementOrdecrement = counterFactory();
+//you need to include "increment" or "decrement" as attribute in incrementOrDecrement
+
+const incrementOrDecrement = counterFactory();
 // Return an object that has two methods called `increment` and `decrement`.
 // `increment` should increment a counter variable in closure scope and return it.
 // `decrement` should decrement the counter variable and return it.
