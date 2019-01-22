@@ -615,3 +615,39 @@ mailingList = runners.map(function(element) {
 // mailingList = runners.map(element => element.email);
 
 console.log(mailingList);
+
+//Some problems that other students did and I though it would be fun to check out
+// Problem 4
+//Find the biggest donnor
+
+let donnorList = runners.map(element => {
+	return {
+		name: `${element.first_name} ${element.last_name}`,
+		donation: element.donation
+	};
+});
+let orderedDonnorList = donnorList.sort((a, b) => b.donation - a.donation);
+let theBiggestDonnor = orderedDonnorList[0];
+console.log(orderedDonnorList);
+console.log(theBiggestDonnor);
+
+// Problem 4
+//Average donation
+
+let averagePrice = ticketPriceTotalSum / runners.length;
+console.log(averagePrice);
+
+//Above or bellow
+
+let aboveOrBellowAverage = runners.map(element => {
+	let donationStatus = "";
+	if (element.donation > averagePrice) {
+		donationStatus = "above average";
+	} else {
+		donationStatus = "below average";
+	}
+	element.donation_status = donationStatus;
+	return element;
+});
+
+console.log(aboveOrBellowAverage);

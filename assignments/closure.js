@@ -28,19 +28,19 @@ const newCounter = counter();
 // ==== Challenge 3: Create a counter function with an object that can increment and decrement ====
 const counterFactory = () => {
 	let counter = 0;
-	let object = {
+	let innerObject = {
 		increment: () => {
-			counter = counter + 1;
+			counter++;
 		},
 		decrement: () => {
-			counter = counter - 1;
+			counter--;
 		}
 	};
-	return function decide(decision) {
+	return decision => {
 		if (decision === "increment") {
-			object.increment();
+			innerObject.increment();
 		} else if (decision === "decrement") {
-			object.decrement();
+			innerObject.decrement();
 		}
 		return counter;
 	};
