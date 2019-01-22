@@ -631,7 +631,7 @@ let theBiggestDonnor = orderedDonnorList[0];
 console.log(orderedDonnorList);
 console.log(theBiggestDonnor);
 
-// Problem 4
+// Problem 5
 //Average donation
 
 let averagePrice = ticketPriceTotalSum / runners.length;

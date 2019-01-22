@@ -29,17 +29,14 @@ const newCounter = counter();
 const counterFactory = () => {
 	let counter = 0;
 	let innerObject = {
-		increment: () => {
-			counter++;
-		},
-		decrement: () => {
-			counter--;
-		}
+		increment: () => counter++,
+		decrement: () => counter--
 	};
-	return decision => {
-		if (decision === "increment") {
+
+	return makeDecision => {
+		if (makeDecision === "increment") {
 			innerObject.increment();
-		} else if (decision === "decrement") {
+		} else if (makeDecision === "decrement") {
 			innerObject.decrement();
 		}
 		return counter;
