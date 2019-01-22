@@ -534,11 +534,22 @@ console.log(ticketPriceTotalSum);
 //We want to thank all the runners for their donations and we have decided to give them a present based on their donations. If donated less than 10$, it is going to be pen. If donated less than 100$ it is going to be a hat, if donated more than 100$ it is going to be tshirt. Filter runners into the 3 lists based on their donations.
 let donationLessThan10 = [];
 let donationLessThan100 = [];
-let donationMoreThan10 = [];
+let donationMoreThan100 = [];
 
-donationLessThan10 = runners.filter(element => element.donation < 10);
-donationLessThan100 = runners.filter(element => element.donation < 100);
-donationMoreThan100 = runners.filter(element => element.donation >= 100);
+donationLessThan10 = runners.filter(function(element) {
+	return element.donation < 10;
+});
+donationLessThan100 = runners.filter(function(element) {
+	return element.donation < 100;
+});
+donationMoreThan100 = runners.filter(function(element) {
+	return element.donation >= 100;
+});
+
+//ARROW FUNCTION
+// donationLessThan10 = runners.filter(element => element.donation < 10);
+// donationLessThan100 = runners.filter(element => element.donation < 100);
+// donationMoreThan100 = runners.filter(element => element.donation >= 100);
 
 console.log(donationLessThan10);
 console.log(donationLessThan100);
@@ -547,21 +558,60 @@ console.log(donationMoreThan100);
 // Problem 2
 //The Tshirts company told you to size up every tshirt as their tshirts are super small. You did that and you need to update the information in the list.
 let newTshirtsSizes = [];
-newTshirtsSizes = runners.map(element => {
+
+newTshirtsSizes = runners.map(function(element) {
+	let newShirtSize = "";
 	if (element.shirt_size === "XS") {
-		element.shirt_size = "S";
+		newShirtSize = "S";
 	} else if (element.shirt_size === "S") {
-		element.shirt_size = "M";
+		newShirtSize = "M";
 	} else if (element.shirt_size === "M") {
-		element.shirt_size = "L";
+		newShirtSize = "L";
 	} else if (element.shirt_size === "L") {
-		element.shirt_size = "XL";
+		newShirtSize = "XL";
 	} else if (element.shirt_size === "XL") {
-		element.shirt_size = "XXL";
+		newShirtSize = "XXL";
+	} else {
+		newShirtSize = element.shirt_size;
 	}
-	return element;
+
+	//ARROW FUNCTION
+	// newTshirtsSizes = runners.map(element => {
+	// 	let newShirtSize = "";
+	// 	if (element.shirt_size === "XS") {
+	// 		newShirtSize = "S";
+	// 	} else if (element.shirt_size === "S") {
+	// 		newShirtSize = "M";
+	// 	} else if (element.shirt_size === "M") {
+	// 		newShirtSize = "L";
+	// 	} else if (element.shirt_size === "L") {
+	// 		newShirtSize = "XL";
+	// 	} else if (element.shirt_size === "XL") {
+	// 		newShirtSize = "XXL";
+	// 	} else {
+	// 		newShirtSize = element.shirt_size;
+	// 	}
+
+	return {
+		id: element.id,
+		first_name: element.first_name,
+		last_name: element.last_name,
+		email: element.email,
+		company_name: element.company_name,
+		donation: element.donation,
+		shirt_size: newShirtSize
+	};
 });
 console.log(newTshirtsSizes);
 
 // Problem 3
-//
+//Marketing team wants a list of emails do they can add it to mailing list
+
+let mailingList = [];
+mailingList = runners.map(function(element) {
+	return element.email;
+});
+// //ARROW FUNCTION
+// mailingList = runners.map(element => element.email);
+
+console.log(mailingList);
